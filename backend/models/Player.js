@@ -5,6 +5,10 @@ const playerSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
+  role: {
+    type: String,
+    default: 'player',
+    },
   trophies: {
     first: {
       type: Number,
