@@ -15,7 +15,8 @@ module.exports = {
     .setName('create')
     .setDescription('Create a Track of the Week Event!')
     .addUserOption((option) => option.setName('mapName').setDescription('Enter the map name for the event.').setRequired(true))
-    .addUserOption((option) => option.setName('mapAuthor').setDescription('Enter the map author\'s name.').setRequired(true))
+    .addUserOption((option) => option.setName('mapAuthor').setDescription("Enter the map author's name.").setRequired(true))
+    .addUserOption((option) => option.setName('eventInfo').setDescription('Additional info for the event.').setRequired(true))
     .addUserOption((option) =>
       option.setName('eventDate').setDescription('Enter the map name for the event! MM/DD/YYYY').setRequired(true)
     ),
@@ -37,6 +38,7 @@ module.exports = {
     const newEvent = new Event({
       mapName: interaction.options.getUser('mapName').id,
       eventDate: data,
+      eventInfo: interaction.options.getUser('eventInfo').id,
     })
     await newEvent.save()
 
